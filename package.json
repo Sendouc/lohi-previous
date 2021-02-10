@@ -10,7 +10,8 @@
   },
   "scripts": {
     "dev": "ts-node-dev index.ts",
-    "build": "tsc index.ts"
+    "build": "tsc",
+    "start": "node dist/index.js"
   },
   "devDependencies": {
     "@types/node": "^14.14.25",
