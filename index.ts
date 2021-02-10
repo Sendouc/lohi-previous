@@ -32,7 +32,11 @@ client.on("message", async (msg) => {
     return;
   }
 
-  if (ids.channels.bot.includes(msg.channel.id as any)) {
+  // You can only use the bot in DM's or certain whitelisted channels
+  if (
+    msg.channel.type !== "dm" &&
+    !ids.channels.bot.includes(msg.channel.id as any)
+  ) {
     return;
   }
 
