@@ -1,5 +1,6 @@
 require("dotenv").config();
 
+import { PrismaClient } from "@prisma/client";
 import * as Discord from "discord.js";
 import * as commands from "./commands";
 import onNewMessage from "./onNewMessage";
@@ -12,14 +13,26 @@ export interface BotCommand {
   description: string;
   validGuilds?: string[];
   adminOnly?: boolean;
-  execute: (msg: Discord.Message, args: string[]) => Promise<void>;
+  execute: (
+    msg: Discord.Message,
+    args: string[],
+    prisma: PrismaClient
+  ) => Promise<void>;
 }
 
 const client = new Discord.Client();
 
+let prisma: PrismaClient | undefined;
+
 client.once("ready", async () => {
+  prisma = new PrismaClient();
   console.log(`${client.user!.username}#${client.user!.discriminator} ready!`);
 });
+
+// client.once("disconnect", async () => {
+//   if (!prisma) return;
+//   await prisma.$disconnect();
+// });
 
 client.on("message", async (msg) => {
   const action = onNewMessage(msg);
@@ -53,8 +66,18 @@ client.on("message", async (msg) => {
   const commandName = args.shift();
   if (!commandName || !isValidCommand(commandName)) return;
 
+  if (commands[commandName].adminOnly && msg.author.id !== ids.users.admin) {
+    return;
+  }
+
+  // should not happen
+  if (!prisma) {
+    console.error("unexpected no prisma");
+    return;
+  }
+
   try {
-    await commands[commandName].execute(msg, args);
+    await commands[commandName].execute(msg, args, prisma);
   } catch (error) {
     console.error(error);
   }
