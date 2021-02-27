@@ -38,11 +38,9 @@ const updateAllUsersCommand: BotCommand = {
     //   )
     // );
 
-    for (const { discordId, ...data } of toUpdate.slice(0, 100)) {
+    for (const { discordId, ...data } of toUpdate) {
       await prisma.user.update({ where: { discordId }, data });
     }
-
-    console.log(toUpdate[0]);
 
     await client.users.cache
       .get(ids.users.admin)
