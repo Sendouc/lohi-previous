@@ -29,10 +29,38 @@ client.once("ready", async () => {
   console.log(`${client.user!.username}#${client.user!.discriminator} ready!`);
 });
 
-// client.once("disconnect", async () => {
-//   if (!prisma) return;
-//   await prisma.$disconnect();
-// });
+client.on("guildMemberAdd", async (member) => {
+  try {
+    if (member.guild.id !== ids.guilds.plusServer || !prisma) return;
+
+    const memberStatus = await prisma.plusStatus.findFirst({
+      where: {
+        user: { discordId: member.id },
+      },
+    });
+    if (!memberStatus) {
+      await member.send("You don't currently have access to +1, +2 or +3.");
+      return;
+    }
+
+    const tierToGive = Math.min(
+      memberStatus.vouchTier ?? Infinity,
+      memberStatus.membershipTier ?? Infinity
+    );
+    if (tierToGive === Infinity) return;
+
+    const roleIdToGive = [
+      null,
+      ids.roles.plusOne,
+      ids.roles.plusTwo,
+      ids.roles.plusThree,
+    ][tierToGive];
+
+    await member.roles.add(roleIdToGive!);
+  } catch (e) {
+    console.error(e);
+  }
+});
 
 client.on("message", async (msg) => {
   const action = onNewMessage(msg);
