@@ -18,6 +18,7 @@ const ids = {
   guilds: {
     sro: "737359708276654121",
     plusServer: "351828612208525333",
+    sendou: "299182152161951744",
   },
 } as const;
 

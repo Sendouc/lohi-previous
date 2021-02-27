@@ -13,14 +13,17 @@ export interface BotCommand {
   description: string;
   validGuilds?: string[];
   adminOnly?: boolean;
-  execute: (
-    msg: Discord.Message,
-    args: string[],
-    prisma: PrismaClient
-  ) => Promise<void>;
+  execute: (commandParameters: {
+    msg: Discord.Message;
+    args: string[];
+    prisma: PrismaClient;
+    client: Discord.Client;
+  }) => Promise<void>;
 }
 
 const client = new Discord.Client();
+
+// setInterval(() => console.log("jaa"), 10000);
 
 let prisma: PrismaClient | undefined;
 
@@ -105,7 +108,7 @@ client.on("message", async (msg) => {
   }
 
   try {
-    await commands[commandName].execute(msg, args, prisma);
+    await commands[commandName].execute({ msg, args, prisma, client });
   } catch (error) {
     console.error(error);
   }
