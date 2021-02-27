@@ -18,16 +18,10 @@ const updateAllUsersCommand: BotCommand = {
       const guild = client.guilds.cache.get(guildId);
 
       for (const [, member] of guild!.members.cache) {
-        console.log({ member, u: users[0] });
         const userFound = users.find((u) => u.discordId === member.id);
         if (!userFound) continue;
 
-        if (
-          userFound.username !== member.user.username ||
-          userFound.discriminator !== member.user.discriminator ||
-          userFound.discordAvatar !== member.user.avatar ||
-          true
-        ) {
+        if (userFound.discordAvatar !== member.user.avatar || true) {
           toUpdate.push({
             username: member.user.username,
             discriminator: member.user.discriminator,
@@ -38,11 +32,17 @@ const updateAllUsersCommand: BotCommand = {
       }
     }
 
-    await Promise.all(
-      toUpdate.map(({ discordId, ...data }) =>
-        prisma.user.update({ where: { discordId }, data })
-      )
-    );
+    // await Promise.all(
+    //   toUpdate.map(({ discordId, ...data }) =>
+    //     prisma.user.update({ where: { discordId }, data })
+    //   )
+    // );
+
+    for (const { discordId, ...data } of toUpdate.slice(0, 100)) {
+      await prisma.user.update({ where: { discordId }, data });
+    }
+
+    console.log(toUpdate[0]);
 
     await client.users.cache
       .get(ids.users.admin)
