@@ -21,7 +21,7 @@ const updateAllUsersCommand: BotCommand = {
         const userFound = users.find((u) => u.discordId === member.id);
         if (!userFound) continue;
 
-        if (userFound.discordAvatar !== member.user.avatar || true) {
+        if (userFound.discordAvatar !== member.user.avatar) {
           toUpdate.push({
             username: member.user.username,
             discriminator: member.user.discriminator,
