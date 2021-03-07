@@ -22,8 +22,8 @@ const updatePatreonCommand: BotCommand = {
       const userFound = users.find((u) => u.discordId === member.id);
       if (!userFound) continue;
 
-      const patreonRole = member.roles.cache.find(
-        (role) => !patreonRoleIds.includes(role.id as any)
+      const patreonRole = member.roles.cache.find((role) =>
+        patreonRoleIds.includes(role.id as any)
       );
       if (!patreonRole) continue;
 
