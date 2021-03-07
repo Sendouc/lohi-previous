@@ -10,6 +10,9 @@ const ids = {
     plusOne: "657613334249734165",
     plusTwo: "678169134416265260",
     plusThree: "815267885601521696",
+    patreonSupporter: "787281384909045760",
+    patreonSupporterPlus: "787281624152801350",
+    patreonSupporterPlusPlus: "787281663138725928",
   },
   channels: {
     // Salmon Run // Plus Server
