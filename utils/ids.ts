@@ -6,6 +6,7 @@ const ids = {
     sroLfg: "749589703371653158",
     sroCoach: "807258345223356486",
     plusTwoPings: "678602424314888224",
+    plusThreePings: "818060819811663872",
   },
   channels: {
     // Salmon Run // Plus Server

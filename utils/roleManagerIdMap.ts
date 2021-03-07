@@ -6,7 +6,8 @@ const roleManagerIdMap: Record<string, Record<string, string>> = {
     coach: ids.roles.sroCoach,
   },
   [ids.guilds.plusServer]: {
-    pings: ids.roles.plusTwoPings,
+    pings2: ids.roles.plusTwoPings,
+    pings3: ids.roles.plusThreePings,
   },
 } as const;
 
