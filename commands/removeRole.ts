@@ -6,7 +6,7 @@ const addRoleCommand: BotCommand = {
   name: "remove",
   description: "Removes the specified role from you",
   validGuilds: [ids.guilds.sro],
-  execute: async (msg, args) => {
+  execute: async ({ msg, args }) => {
     if (!args.length) return;
 
     const roleMap = roleManagerIdMap[msg.guild?.id ?? ""];

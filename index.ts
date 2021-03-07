@@ -13,14 +13,17 @@ export interface BotCommand {
   description: string;
   validGuilds?: string[];
   adminOnly?: boolean;
-  execute: (
-    msg: Discord.Message,
-    args: string[],
-    prisma: PrismaClient
-  ) => Promise<void>;
+  execute: (commandParameters: {
+    msg: Discord.Message;
+    args: string[];
+    prisma: PrismaClient;
+    client: Discord.Client;
+  }) => Promise<void>;
 }
 
 const client = new Discord.Client();
+
+// setInterval(() => console.log("jaa"), 10000);
 
 let prisma: PrismaClient | undefined;
 
@@ -29,10 +32,38 @@ client.once("ready", async () => {
   console.log(`${client.user!.username}#${client.user!.discriminator} ready!`);
 });
 
-// client.once("disconnect", async () => {
-//   if (!prisma) return;
-//   await prisma.$disconnect();
-// });
+client.on("guildMemberAdd", async (member) => {
+  try {
+    if (member.guild.id !== ids.guilds.plusServer || !prisma) return;
+
+    const memberStatus = await prisma.plusStatus.findFirst({
+      where: {
+        user: { discordId: member.id },
+      },
+    });
+    if (!memberStatus) {
+      await member.send("You don't currently have access to +1, +2 or +3.");
+      return;
+    }
+
+    const tierToGive = Math.min(
+      memberStatus.vouchTier ?? Infinity,
+      memberStatus.membershipTier ?? Infinity
+    );
+    if (tierToGive === Infinity) return;
+
+    const roleIdToGive = [
+      null,
+      ids.roles.plusOne,
+      ids.roles.plusTwo,
+      ids.roles.plusThree,
+    ][tierToGive];
+
+    await member.roles.add(roleIdToGive!);
+  } catch (e) {
+    console.error(e);
+  }
+});
 
 client.on("message", async (msg) => {
   const action = onNewMessage(msg);
@@ -77,7 +108,7 @@ client.on("message", async (msg) => {
   }
 
   try {
-    await commands[commandName].execute(msg, args, prisma);
+    await commands[commandName].execute({ msg, args, prisma, client });
   } catch (error) {
     console.error(error);
   }
