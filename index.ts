@@ -23,7 +23,8 @@ export interface BotCommand {
 
 const client = new Discord.Client();
 
-// setInterval(() => console.log("jaa"), 10000);
+setInterval(commands["updateall"].execute, 12 * 3600 * 1000); // 12 hours
+setInterval(commands["patreon"].execute, 24 * 3600 * 1000); // 24 hours
 
 let prisma: PrismaClient | undefined;
 
