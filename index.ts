@@ -1,8 +1,6 @@
 require("dotenv").config();
 
 import { PrismaClient } from "@prisma/client";
-import { updateAllAction } from "commands/updateAllUsers";
-import { updatePatreonAction } from "commands/updatePatreon";
 import * as Discord from "discord.js";
 import * as commands from "./commands";
 import onNewMessage from "./onNewMessage";
@@ -25,8 +23,8 @@ export interface BotCommand {
 
 const client = new Discord.Client();
 
-setInterval(updateAllAction, 12 * 3600 * 1000); // 12 hours
-setInterval(updatePatreonAction, 24 * 3600 * 1000); // 24 hours
+// setInterval(updateAllAction, 12 * 3600 * 1000); // 12 hours
+// setInterval(updatePatreonAction, 24 * 3600 * 1000); // 24 hours
 
 let prisma: PrismaClient | undefined;
 
