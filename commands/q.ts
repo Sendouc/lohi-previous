@@ -8,12 +8,12 @@ const groupedLinks = {
       "https://cdn.discordapp.com/attachments/865925063731445760/865926005776056360/SG_HT_Seeking.png",
     ],
     grillers: [
-      "https://cdn.discordapp.com/attachments/865926784200867861/865927102385487872/SG_NT_Grillers.png",
-      "https://cdn.discordapp.com/attachments/865926784200867861/865927113194209290/SG_HT_Grillers.png",
+      "https://cdn.discordapp.com/attachments/951441475034558484/951441708745388062/SG_NT_Grillers.png",
+      "https://cdn.discordapp.com/attachments/951441475034558484/951441742283018291/SG_HT_Grillers.png",
     ],
     rush: [
-      "https://cdn.discordapp.com/attachments/865928057621839882/865928169085337631/SG_NT_Rush.png",
-      "https://cdn.discordapp.com/attachments/865928057621839882/865928182254141450/SG_HT_Rush.png",
+      "https://cdn.discordapp.com/attachments/951442362775765022/951442493927485450/SG_NT_Rush.png",
+      "https://cdn.discordapp.com/attachments/951442362775765022/951442573971578880/SG_HT_Rush.png",
     ],
   },
   mb: {
@@ -22,12 +22,12 @@ const groupedLinks = {
       "https://cdn.discordapp.com/attachments/865925063731445760/865926264409030696/MB_HT_Seeking.png",
     ],
     grillers: [
-      "https://cdn.discordapp.com/attachments/865926784200867861/865927219985907712/MB_NT_Grillers.png",
-      "https://cdn.discordapp.com/attachments/865926784200867861/865927230227742740/MB_HT_Grillers.png",
+      "https://cdn.discordapp.com/attachments/951441475034558484/951441787573141534/MB_NT_Grillers.png",
+      "https://cdn.discordapp.com/attachments/951441475034558484/951441828299817020/MB_HT_Grillers.png",
     ],
     rush: [
-      "https://cdn.discordapp.com/attachments/865928057621839882/865928239096528906/MB_NT_Rush.png",
-      "https://cdn.discordapp.com/attachments/865928057621839882/865928248675794964/MB_HT_Rush.png",
+      "https://cdn.discordapp.com/attachments/951442362775765022/951442753563291688/MB_NT_Rush.png",
+      "https://cdn.discordapp.com/attachments/951442362775765022/951442772345356288/MB_HT_Rush.png",
     ],
   },
   lo: {
@@ -36,12 +36,12 @@ const groupedLinks = {
       "https://cdn.discordapp.com/attachments/865925063731445760/865926346545954836/LO_HT_Seeking.png",
     ],
     grillers: [
-      "https://cdn.discordapp.com/attachments/865926784200867861/865927377342824448/LO_NT_Grillers.png",
-      "https://cdn.discordapp.com/attachments/865926784200867861/865927391292686356/LO_HT_Grillers.png",
+      "https://cdn.discordapp.com/attachments/951441475034558484/951441880841854986/LO_NT_Grillers.png",
+      "https://cdn.discordapp.com/attachments/951441475034558484/951441897052864532/LO_HT_Grillers.png",
     ],
     rush: [
-      "https://cdn.discordapp.com/attachments/865928057621839882/865928287310446602/LO_NT_Rush.png",
-      "https://cdn.discordapp.com/attachments/865928057621839882/865928297883107358/LO_HT_Rush.png",
+      "https://cdn.discordapp.com/attachments/951442362775765022/951442800166174782/LO_NT_Rush.png",
+      "https://cdn.discordapp.com/attachments/951442362775765022/951442813596360714/LO_HT_Rush.png",
     ],
   },
   ss: {
@@ -50,12 +50,12 @@ const groupedLinks = {
       "https://cdn.discordapp.com/attachments/865925063731445760/865926397561798656/SS_HT_Seeking.png",
     ],
     grillers: [
-      "https://cdn.discordapp.com/attachments/865926784200867861/865927587885088768/SS_NT_Grillers.png",
-      "https://cdn.discordapp.com/attachments/865926784200867861/865927597358448640/SS_HT_Grillers.png",
+      "https://cdn.discordapp.com/attachments/951441475034558484/951441959510233118/SS_NT_Grillers.png",
+      "https://cdn.discordapp.com/attachments/951441475034558484/951441974198698005/SS_HT_Grillers.png",
     ],
     rush: [
-      "https://cdn.discordapp.com/attachments/865928057621839882/865928336789602344/SS_NT_Rush.png",
-      "https://cdn.discordapp.com/attachments/865928057621839882/865928346540834856/SS_HT_Rush.png",
+      "https://cdn.discordapp.com/attachments/951442362775765022/951442852485935164/SS_NT_Rush.png",
+      "https://cdn.discordapp.com/attachments/951442362775765022/951442864305479710/SS_HT_Rush.png",
     ],
   },
   ap: {
@@ -64,12 +64,12 @@ const groupedLinks = {
       "https://cdn.discordapp.com/attachments/865925063731445760/865926546635620382/AP_HT_Seeking.png",
     ],
     grillers: [
-      "https://cdn.discordapp.com/attachments/865926784200867861/865927659383947264/AP_NT_Grillers.png",
-      "https://cdn.discordapp.com/attachments/865926784200867861/865927670939385877/AP_HT_Grillers.png",
+      "https://cdn.discordapp.com/attachments/951441475034558484/951442012626878514/AP_NT_Grillers.png",
+      "https://cdn.discordapp.com/attachments/951441475034558484/951442021246201906/AP_HT_Grillers.png",
     ],
     rush: [
-      "https://cdn.discordapp.com/attachments/865928057621839882/865928370389647360/AP_NT_Rush.png",
-      "https://cdn.discordapp.com/attachments/865928057621839882/865928378933313566/AP_HT_Rush.png",
+      "https://cdn.discordapp.com/attachments/951442362775765022/951442890721206312/AP_NT_Rush.png",
+      "https://cdn.discordapp.com/attachments/951442362775765022/951442901219561472/AP_HT_Rush.png",
     ],
   },
   fundamentals:
